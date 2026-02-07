@@ -1,0 +1,313 @@
+<html lang="pt-BR"><head>
+  <meta charset="utf-8">
+  <title>DUAL // FUSION OS — V7 (Final Fluid)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#05070a">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;900&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+  
+
+
+<!-- ========== UNIFIED SCRIPT (single mutation server) ========== -->
+
+<!-- ============ /LIST/ASCII BEAUTY PATCH — V2 ============ -->
+</style>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="apple-touch-icon" href="icon-192.png"></head>
+<body>
+
+  <!-- Cinematic Elements <div class="svg-container">
+    <object data="3D_logo_Dual_Infodose_9.svg" type="image/svg+xml"></object>
+  </div>-->
+  
+  <div id="snap-zone"></div>
+  <div class="ambient-light"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
+  <div id="particles-js"><canvas class="particles-js-canvas-el"></canvas></div>
+
+  
+
+  <div class="top-info" id="topInfo">
+    <span id="displayUser">Dual: —</span> · <span id="displayInfodose">Infodose: —</span>
+  </div>
+
+  <div class="container">
+    <div class="fusion-card closed" id="mainCard">
+
+      <div class="card-header" id="cardHeader">
+        <div class="avatar-slot" id="avatarTarget" title="Gerenciar Chaves (Cofre)"></div>
+        <div class="text-block">
+          <div class="greeting-row">
+            <span class="txt-thin" id="lblHello">Oi,</span>
+            <span class="txt-heavy" id="lblName">Convidado</span>
+          </div>
+          <div class="brand-dual">DUAL</div>
+        </div>
+        <div class="clock-widget">
+          <div class="time-display" id="clockTime">00:00</div>
+          <span class="status-led">ONLINE</span>
+        </div>
+        <!-- Button visible only in HUD mode -->
+        <button class="hud-menu-btn" id="hudMenuBtn" title="Menu Rápido"><i data-lucide="menu"></i></button>
+      </div>
+      
+      <!-- Trigger visible only on Orb Hover -->
+      <div class="orb-menu-trigger" id="orbMenuTrigger" title="Menu Rápido">●●●</div>
+      <!-- Drag Handle for HUD -->
+      <div class="drag-handle"></div>
+
+      <div class="small-preview" id="smallPreview" title="Gerenciar Chaves">
+        <div class="mini-avatar" id="smallMiniAvatar"></div>
+        <div class="small-text" id="smallText">Aguardando ativação...</div>
+        <div class="ident-badge" id="smallIdent">--</div>
+      </div>
+
+      <div class="card-body" id="cardBody">
+        <!-- Main Input User -->
+        <div class="input-wrapper stagger-item">
+          <input type="text" class="cyber-input" id="inputUser" placeholder="Identifique-se..." autocomplete="off">
+        </div>
+
+        <!-- Section 1: ASCII Activation -->
+        <div class="activation-wrap stagger-item">
+          <div class="activation-toggle" onclick="toggleSection('activationCard')">
+            <div style="display:flex;align-items:center;gap:8px">
+              <div style="width:10px;height:10px;border-radius:99px;background:var(--neon-cyan)"></div>
+              <strong style="letter-spacing:1px;font-size:0.9rem">Ativação ASCII</strong>
+            </div>
+            <div style="margin-left:auto;font-size:0.82rem;color:rgba(255,255,255,0.6)">BASE v1</div>
+          </div>
+          <div id="activationCard" class="activation-card activation-hidden">
+            <div style="display:flex;align-items:flex-start;gap:10px">
+              <div style="display:flex;align-items:center;gap:8px">
+                <div class="mini-avatar" id="actMiniAvatar"></div>
+                <div><div style="font-weight:700">CÉREBRO</div><div style="font-size:0.78rem;opacity:0.6"><span id="actName">User</span></div></div>
+              </div>
+              <div class="activation-badge" id="actBadge" style="margin-left:auto">v:--</div>
+            </div>
+            <pre id="actPre" class="activation-pre">Carregando...</pre>
+            <div class="activation-controls" style="display:flex;gap:8px;margin-top:8px">
+              <button class="trigger-btn" id="copyActBtn">COPIAR</button>
+              <button class="trigger-btn" id="downloadActBtn">PNG</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: System & Neural (Config) - Embedded in Card -->
+        <div class="activation-wrap stagger-item">
+            <div class="activation-toggle" onclick="toggleSection('systemCard')">
+                <div style="display:flex;align-items:center;gap:8px">
+                  <div style="width:10px;height:10px;border-radius:99px;background:var(--neon-purple)"></div>
+                  <strong style="letter-spacing:1px;font-size:0.9rem">SYSTEM &amp; NEURAL</strong>
+                </div>
+                <div style="margin-left:auto;font-size:0.82rem;color:rgba(255,255,255,0.6)">CONFIG</div>
+            </div>
+            <div id="systemCard" class="activation-card activation-hidden">
+                <div class="col">
+                   <div class="section-title">IDENTIDADE DA INFODOSE</div>
+                   <input type="text" id="infodoseNameInput" placeholder="Nome: World System..." style="width:100%;margin-bottom:8px;padding:8px;border-radius:6px;background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.1);color:#fff">
+                   
+                   <div class="section-title" style="margin-top:8px">CONEXÃO NEURAL (SK)</div>
+                   <input type="password" id="apiKeyInput" placeholder="sk-or-..." autocomplete="off" style="width:100%;margin-bottom:6px;padding:8px;border-radius:6px;background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.1);color:#fff">
+                   <input type="text" id="modelInput" placeholder="Modelo AI..." style="width:100%;margin-bottom:8px;padding:8px;border-radius:6px;background:rgba(0,0,0,0.3);border:1px solid rgba(255,255,255,0.1);color:#fff">
+                   
+                  <div class="model-toggle">
+  <select id="modelSelect" class="btn btn-sec">
+    <option value="" disabled>Modelo</option>
+    <option value="allenai/molmo-2-8b:free">MolMo</option>
+    <option value="nvidia/nemotron-3-nano-30b-a3b:free">NemoTron</option>
+    <option value="mistralai/devstral-2512:free">DevStral</option>
+    <option value="openai/gpt-oss-120b:free">OSS120b</option>
+    <option value="custom-model">Custom</option>
+  </select>
+</div>
+                   <div class="section-title" style="margin-top:8px">TREINAMENTO</div>
+                   <div style="display:flex;gap:6px">
+                       <input type="file" id="trainingUpload" accept=".txt" style="display:none">
+                       <button class="trigger-btn" onclick="document.getElementById('trainingUpload').click()" style="padding:8px;flex:1">UPLOAD .TXT</button>
+                       <button id="exportTrainingBtn" class="trigger-btn" style="padding:8px;flex:1">BAIXAR</button>
+                   </div>
+                   <div id="trainingFileName" class="small" style="margin-top:4px;color:#9bd;font-size:0.75rem">Vazio</div>
+
+                   <div class="panel-divider" style="margin:10px 0"></div>
+
+                   <div style="display:flex; flex-direction:column; gap:6px;">
+                        <div style="display:flex;align-items:center;gap:6px;font-size:0.85rem">
+                            <input type="checkbox" id="assistantActiveCheckbox"> <label>Infodose Ativa</label>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:6px;font-size:0.85rem">
+                            <input type="checkbox" id="trainingActiveCheckbox"> <label>Treinamento Ativo</label>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:6px;font-size:0.85rem">
+                            <input type="checkbox" id="zenModeCheckbox"> <label>Modo Zen</label>
+                        </div>
+                   </div>
+
+                   <button id="saveSystemBtn" class="trigger-btn" style="margin-top:12px;background:var(--neon-cyan);color:#000;border:none;font-weight:700">SALVAR CONFIGURAÇÃO</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="stagger-item" style="margin-top:4px">
+            <div class="stat-lbl" style="margin-bottom:6px">INTERFACE MODE</div>
+            <div style="display:flex; gap:8px;">
+                <button class="trigger-btn mode-btn active-mode" id="btnModeCard" onclick="setMode('card')" style="flex:1" title="Modo Padrão">CARD</button>
+                <button class="trigger-btn mode-btn" id="btnModeOrb" onclick="setMode('orb')" style="flex:1" title="Flutuante">ORB</button>
+                <button class="trigger-btn mode-btn" id="btnModeHud" onclick="setMode('hud')" style="flex:1" title="Barra de Topo">HUD</button>
+            </div>
+        </div>
+
+        
+      </div>
+
+    </div>
+  </div>
+
+  <div class="toaster-wrap" id="toasterWrap"></div>
+
+  <!-- KEYS MANAGER MODAL -->
+  <div id="keysModal" class="modal-overlay" aria-hidden="true">
+    <div class="keys-card" role="dialog">
+      <div class="keys-header">
+        <div>
+          <div id="keysTitle" style="font-weight:800;font-size:1.1rem;color:var(--neon-cyan)">USER KEYS MANAGER</div>
+          <div style="color:rgba(255,255,255,0.6);font-size:0.85rem">Gerencie suas chaves API com segurança local (Cofre).</div>
+        </div>
+        <button id="closeKeysBtn" class="small-btn">X</button>
+      </div>
+      <div class="key-list" id="keyList"></div>
+      <div class="form-section">
+        <div class="form-grid">
+          <input id="keyNameInput" placeholder="Nome da chave (ex: Principal)">
+          <input id="keyTokenInput" type="password" placeholder="Token / ESK (Opcional)">
+        </div>
+        <div class="form-row">
+          <input id="keyWebhookInput" placeholder="Webhook URL (https://...)" style="flex:1">
+          <button id="testWebhookBtn" class="small-btn" title="Testar Conexão">PING</button>
+        </div>
+        <button id="addKeyBtn" class="small-btn" style="width:100%;margin-top:8px;background:rgba(255,255,255,0.1)">ADICIONAR CHAVE</button>
+      </div>
+      <div style="display:flex;gap:8px;justify-content:space-between;margin-top:15px;border-top:1px solid rgba(255,255,255,0.05);padding-top:12px">
+        <div style="font-size:0.7rem;color:rgba(255,255,255,0.4);display:flex;align-items:center;gap:5px">
+          <i data-lucide="shield-check" style="width:14px"></i> <span id="vaultStatusText">Cofre Aberto</span>
+        </div>
+        <div style="display:flex;gap:8px">
+          <button id="lockVaultBtn" class="small-btn danger">BLOQUEAR</button>
+          <button id="exportKeysBtn" class="small-btn">Export</button>
+          <button id="importKeysBtn" class="small-btn">Import</button>
+          <input id="importFileInput" type="file" accept="application/json" style="display:none">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VAULT UNLOCK MODAL -->
+  <div id="vaultModal" class="modal-overlay" aria-hidden="true">
+    <div class="keys-card">
+      <div class="vault-icon"><i data-lucide="lock" style="width:24px;height:24px"></i></div>
+      <h3 style="margin:0 0 10px 0;font-weight:800">ACESSO AO COFRE</h3>
+      <p style="margin:0 0 15px 0;font-size:0.9rem;color:rgba(255,255,255,0.6)">Seus dados estão criptografados. Digite a senha para desbloquear.</p>
+      <input type="password" id="vaultPassInput" class="cyber-input" style="text-align:center;margin-bottom:12px" placeholder="Senha...">
+      <div style="display:flex;gap:8px;justify-content:center">
+         <button id="vaultCancelBtn" class="small-btn">Cancelar</button>
+         <button id="vaultUnlockBtn" class="small-btn active-btn">DESBLOQUEAR</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="response-container" id="response">
+    <div class="page initial active">
+      <strong>Clique no ◉ e diga “Oi, Dual”.</strong><br>
+      <em>Sempre único. Sempre seu.</em>
+    </div>
+    <div class="response-controls">
+      <div class="control-buttons">
+        <button class="control-btn copy-button" title="Copiar tudo">
+          <svg viewBox="0 0 24 24" width="20"><circle cx="12" cy="12" r="10"></circle><rect x="6" y="6" width="12" height="12"></rect></svg>
+        </button>
+        <button class="control-btn paste-button" title="Colar">
+          <svg viewBox="0 0 24 24" width="20"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+        </button>
+        <button id="toggleBtn" class="control-btn toggle-button" title="Check Connection &amp; Training">
+          <!-- Toggle Icon (Power/Signal hybrid) -->
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18.36 6.64a9 9 0 1 1-12.73 0"></path>
+            <line x1="12" y1="2" x2="12" y2="12"></line>
+          </svg>
+        </button>
+        <button id="crystalBtn" class="control-btn" title="Cristalizados">
+          <svg viewBox="0 0 24 24" width="20" height="20"><path d="M12 2l2.9 6.3L21 10l-5 3.6L17.8 21 12 17.7 6.2 21 7 13.6 2 10l6.1-1.7L12 2z"></path></svg>
+        </button>
+      </div>
+      <div class="pagination">
+        <button data-action="prev">⟵</button>
+        <span id="pageIndicator">1 / 1</span>
+        <button data-action="next">⟶</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="input-container">
+    <input id="userInput" type="text" placeholder="Diga: 'oi, Dual'...">
+    <button id="sendBtn" title="Enviar">➤</button>
+    <button id="voiceBtn" title="Falar">
+      <object data="Reset_buttom_Dual-Infodose.svg" type="image/svg+xml" width="36" height="36" style="pointer-events: none;"></object>
+    </button>
+  </div>
+
+  <div id="crystalModal" class="modal">
+    <div class="box">
+      <h3>Cristalizados</h3>
+      <div class="row" style="margin-bottom:8px">
+        <button id="exportAllCrystal" class="btn btn-prim">Exportar todos</button>
+        <button id="clearAllCrystal" class="btn btn-sec">Limpar tudo</button>
+      </div>
+      <div class="crystal-list" id="crystalList"></div>
+      <div style="margin-top:12px;display:flex;justify-content:flex-end;gap:8px">
+        <button id="closeCrystal" class="btn btn-sec">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="mantra-toggle">
+    <span id="mantra-text">Do seu jeito. <strong>Sempre</strong> único. <strong>Sempre</strong> seu.</span>
+  </div>
+
+
+  
+
+  
+
+
+
+
+
+
+<div class="wrap">
+  <div class="content">
+ <!--   <iframe id="frame" src="https://kodux78k.github.io/oiDual-idHome/" title="Dual Infodose frame"></iframe> -->
+    <iframe id="frame" src="https://kodux78k.github.io/oiDual-H0/DH0-10.html" title="Dual Infodose frame"></iframe>
+  </div>
+
+  
+<div id="fusion-soft-layer"></div>
+ <div id="navRoot"></div> 
+  <script src="https://kodux78k.github.io/oiDual-0i/0RB-0S17.js"></script>
+
+  <link rel="stylesheet" href="css/main.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://kodux78k.github.io/oiDual-0i/0RB-0S17.js"></script>
+  <script src="js/core.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
